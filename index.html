@@ -8,21 +8,29 @@
     <script src="script.js" defer></script>
   </head>
   <body id="body">
-    <div id="content">
-      <h1>Current Frequency: <span id="frequency"></span>Hz</h1>
-
+    <div id="tab-1">
       <div>
-        Target Frequency
-        <input id="frequency-input" type="number" value="400" />
+        <h1>Current Frequency: <span id="frequency"></span>Hz</h1>
+
+        <div>
+          Target Frequency
+          <input id="frequency-input" type="number" value="400" />
+        </div>
+
+        <div>
+          Sensitivity
+          <input id="sensitivity-input" type="range" value="90" />
+        </div>
+
+        <button id="start-button">start</button>
       </div>
 
-      <div>
-        Sensitivity
-        <input id="sensitivity-input" type="range" value="90" />
-      </div>
-
-      <button id="start-button">start</button>
-      <span id="output"></span>
+      <div id="color-changing"></div>
+    </div>
+    <div id="tab-2">
+      <canvas id="canvas"></canvas>
+      <br />
+      Graph of Peak Frequency Over Time
     </div>
   </body>
 </html>
