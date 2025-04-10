@@ -3,6 +3,7 @@ const frequencyEl = document.getElementById("frequency");
 frequencyEl.innerText = "???";
 
 const startButton = document.getElementById("start-button");
+const showGraphButton = document.getElementById("show-graph-button");
 const output = document.getElementById("output");
 const body = document.getElementById("body");
 
@@ -13,6 +14,16 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 const history = [];
+
+canvas.style.visibility = "hidden";
+
+showGraphButton.onclick = () => {
+  if (canvas.style.visibility == "hidden") {
+    canvas.style.visibility = "visible";
+  } else {
+    canvas.style.visibility = "hidden";
+  }
+};
 
 startButton.onclick = async () => {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
