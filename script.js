@@ -2,9 +2,12 @@ const frequencyEl = document.getElementById("frequency");
 
 frequencyEl.innerText = "???";
 
-const startButton = document.getElementById("startButton");
+const startButton = document.getElementById("start-button");
 const output = document.getElementById("output");
 const body = document.getElementById("body");
+
+const targetFrequencyInput = document.getElementById("frequency-input");
+const sensitivityInput = document.getElementById("sensitivity-input");
 
 startButton.onclick = async () => {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -54,8 +57,8 @@ startButton.onclick = async () => {
     // output.textContent = `Dominant Frequency: ${dominantFreq.toFixed(2)} Hz (Amplitude: ${maxValue})`;
     frequencyEl.textContent = dominantFreq.toFixed(2);
 
-    let center = 386;
-    let range = 2;
+    let center = parseInt(targetFrequencyInput.value);
+    let range = (100 - parseInt(sensitivityInput.value)) / 10;
 
     if (dominantFreq > center + range) {
       body.style.setProperty("--bg", "red");

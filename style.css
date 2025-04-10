@@ -7,15 +7,11 @@ body {
   justify-content: center;
   align-items: center;
 
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 #content {
   display: block;
   height: min-content;
   text-align: center;
-}
-
-#startButton {
-  font-size: 100pt;
 }
