@@ -1,0 +1,21 @@
+body {
+  --bg: #ffffff;
+  margin: 0;
+  background-color: var(--bg);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#content {
+  display: block;
+  height: min-content;
+  text-align: center;
+}
+
+#startButton {
+  font-size: 100pt;
+}
