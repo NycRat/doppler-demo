@@ -14,13 +14,16 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 const history = [];
+let shown = false;
 
 canvas.style.visibility = "hidden";
 
 showGraphButton.onclick = () => {
   if (canvas.style.visibility == "hidden") {
+    shown = true;
     canvas.style.visibility = "visible";
   } else {
+    shown = false;
     canvas.style.visibility = "hidden";
   }
 };
@@ -71,7 +74,11 @@ startButton.onclick = async () => {
     const dominantFreq = interpolatedIndex * binWidth;
 
     // output.textContent = `Dominant Frequency: ${dominantFreq.toFixed(2)} Hz (Amplitude: ${maxValue})`;
-    frequencyEl.textContent = dominantFreq.toFixed(2);
+    if (shown) {
+      frequencyEl.textContent = dominantFreq.toFixed(2);
+    } else {
+      frequencyEl.textContent = "???";
+    }
 
     let targetFrequency = parseInt(targetFrequencyInput.value);
     let targetRange = (100 - parseInt(sensitivityInput.value)) / 10;
@@ -81,7 +88,7 @@ startButton.onclick = async () => {
     } else if (dominantFreq < targetFrequency - targetRange) {
       body.style.setProperty("--bg", "blue");
     } else {
-      body.style.setProperty("--bg", "white");
+      body.style.setProperty("--bg", "yellow");
     }
 
     // constant update canvas width / height
