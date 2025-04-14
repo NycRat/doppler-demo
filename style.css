@@ -7,7 +7,12 @@ body {
   /* justify-content: center; */
   /* align-items: center; */
 
+  font-size: 30px;
   font-family: "Courier New", Courier, monospace;
+}
+
+input {
+  font-size: 30px;
 }
 
 #tab-1 {
